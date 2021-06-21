@@ -11,6 +11,9 @@ class Kabupaten extends Model
     use HasFactory;
     protected $table='kabupatens'; // Mendifinisikan bahwa model ini terkait dengan tabel kelas
 
+    public $timestamps= false;
+    protected $primaryKey = 'id_kabupaten';
+
     protected $fillable = [
         'id_kabupaten',
         'nama_kabupaten',
@@ -18,5 +21,9 @@ class Kabupaten extends Model
 
     public function kecamatan(){
         return $this->hasMany(Kecamatan::class);
+    }
+
+    public function wisata(){
+        return $this->hasMany(Wisata::class);
     }
 }
